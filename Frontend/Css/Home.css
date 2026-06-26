@@ -1,0 +1,220 @@
+.charity-card-page-container{
+
+    width:100%;
+
+    max-width:1200px;
+
+    margin:40px auto;
+
+    padding:20px;
+
+    box-sizing:border-box;
+
+}
+
+
+
+.charity-card-page-title{
+
+    text-align:center;
+
+    font-size:30px;
+
+    margin-bottom:30px;
+
+}
+
+
+
+/* Cards layout */
+
+.charity-card-page-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3, 1fr);
+
+    gap:25px;
+
+}
+
+
+
+/* Card */
+
+.charity-card-page-item{
+
+
+    background:white;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    box-shadow:
+    0 5px 20px rgba(0,0,0,0.12);
+
+    transition:0.3s;
+
+    overflow:hidden;
+
+}
+
+
+
+.charity-card-page-item:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.charity-card-page-image{
+
+
+    width:100%;
+
+    height:180px;
+
+    object-fit:contain;
+
+    border-radius:12px;
+
+    margin-bottom:15px;
+
+}
+
+
+
+/* Title */
+
+.charity-card-page-item h3{
+
+
+    font-size:20px;
+
+    margin-bottom:10px;
+
+}
+
+
+
+/* Category */
+
+.charity-card-page-category{
+
+
+    display:inline-block;
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    font-size:14px;
+
+    margin-bottom:12px;
+
+}
+
+
+
+/* Text */
+
+.charity-card-page-item p{
+
+
+    line-height:1.5;
+
+    word-break:break-word;
+
+}
+
+
+
+/* Button */
+
+.charity-card-page-btn{
+
+
+    width:100%;
+
+    padding:12px;
+
+    margin-top:15px;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+}
+
+
+
+/* Tablet */
+
+@media(max-width:900px){
+
+
+    .charity-card-page-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+
+}
+
+
+
+/* Mobile */
+
+@media(max-width:600px){
+
+
+    .charity-card-page-container{
+
+        padding:15px;
+
+    }
+
+
+
+    .charity-card-page-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+        gap:15px;
+
+    }
+
+
+
+    .charity-card-page-item{
+
+        padding:15px;
+
+    }
+
+
+
+    .charity-card-page-image{
+
+        height:120px;
+
+    }
+
+
+
+    .charity-card-page-title{
+
+        font-size:24px;
+
+    }
+
+
+}
+
+

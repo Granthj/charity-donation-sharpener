@@ -1,0 +1,299 @@
+.profile-page {
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.profile-page .profile-container {
+
+    width: 100%;
+    max-width: 600px;
+
+    background: #ffffff;
+
+    border-radius: 15px;
+
+    padding: 25px;
+
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+
+    box-sizing: border-box;
+}
+
+
+
+/* Header */
+
+.profile-page .profile-header {
+
+    text-align: center;
+
+    margin-bottom: 25px;
+
+}
+
+
+.profile-page .profile-avatar {
+
+    width:80px;
+    height:80px;
+
+    border-radius:50%;
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:32px;
+
+    font-weight:bold;
+
+    background:#4f46e5;
+
+    color:white;
+
+}
+
+
+
+.profile-page .profile-header h2 {
+
+    margin-top:15px;
+
+    font-size:24px;
+
+}
+
+
+
+/* Form */
+
+.profile-page .profile-form {
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+
+
+.profile-page .form-group {
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:6px;
+
+}
+
+
+
+.profile-page .form-group label {
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+
+
+.profile-page .form-group input,
+.profile-page .form-group textarea {
+
+
+    width:100%;
+
+    padding:12px;
+
+    border-radius:8px;
+
+    border:1px solid #ddd;
+
+    outline:none;
+
+    font-size:15px;
+
+    box-sizing:border-box;
+
+}
+
+
+
+.profile-page .form-group textarea {
+
+    resize:none;
+
+    height:100px;
+
+}
+
+
+
+.profile-page .form-group input:focus,
+.profile-page .form-group textarea:focus {
+
+    border-color:#4f46e5;
+
+}
+
+
+
+/* Buttons */
+
+.profile-page button {
+
+
+    width:100%;
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:0.2s;
+
+}
+
+
+
+.profile-page #updateProfileBtn {
+
+    background:#4f46e5;
+
+    color:white;
+
+}
+
+
+
+.profile-page #updateProfileBtn:hover {
+
+    opacity:0.9;
+
+}
+
+
+
+
+.profile-page .profile-actions {
+
+
+    margin-top:20px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+
+
+.profile-page #donationHistoryBtn {
+
+
+    background:#16a34a;
+
+    color:white;
+
+}
+
+
+
+.profile-page #logoutBtn {
+
+
+    background:#dc2626;
+
+    color:white;
+
+}
+
+
+
+
+/* Tablet */
+
+@media (min-width:768px){
+
+
+    .profile-page {
+
+        padding:40px;
+
+    }
+
+
+    .profile-page .profile-container {
+
+        padding:35px;
+
+    }
+
+
+}
+
+
+
+/* Mobile */
+
+@media (max-width:480px){
+
+
+    .profile-page {
+
+        padding:15px;
+
+    }
+
+
+    .profile-page .profile-container {
+
+        padding:20px;
+
+        border-radius:10px;
+
+    }
+
+
+    .profile-page .profile-header h2 {
+
+        font-size:20px;
+
+    }
+
+
+    .profile-page .profile-avatar {
+
+        width:65px;
+
+        height:65px;
+
+        font-size:25px;
+
+    }
+
+
+}

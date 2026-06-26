@@ -1,0 +1,322 @@
+.donation-page-container{
+
+
+    width:100%;
+
+    max-width:1100px;
+
+    margin:40px auto;
+
+    padding:20px;
+
+    box-sizing:border-box;
+
+}
+
+
+
+.donation-page-card{
+
+
+    background:white;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,0.12);
+
+}
+
+
+
+.donation-page-image-wrapper{
+
+
+    width:100%;
+
+    height:450px;
+
+}
+
+
+
+.donation-page-image{
+
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+    background:#f5f5f5;
+
+}
+
+
+
+
+
+.donation-page-content{
+
+
+    padding:30px;
+
+}
+
+
+
+
+
+.donation-page-title{
+
+
+    font-size:32px;
+
+    margin-bottom:15px;
+
+}
+
+
+
+
+.donation-page-category{
+
+
+    display:inline-block;
+
+    padding:7px 15px;
+
+    border-radius:20px;
+
+    font-size:14px;
+
+}
+
+
+
+
+
+.donation-page-location{
+
+
+    margin-top:15px;
+
+    font-size:16px;
+
+}
+
+
+
+
+
+.donation-page-section{
+
+
+    margin-top:30px;
+
+}
+
+
+
+.donation-page-section h3{
+
+
+    font-size:22px;
+
+    margin-bottom:10px;
+
+}
+
+
+
+.donation-page-section p{
+
+
+    line-height:1.7;
+
+}
+
+
+
+
+
+/* Progress */
+
+
+.donation-page-progress-box{
+
+
+    margin-top:30px;
+
+    padding:20px;
+
+    border-radius:12px;
+
+}
+
+
+
+.donation-page-progress-bar{
+
+
+    width:100%;
+
+    height:14px;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+
+
+.donation-page-progress-fill{
+
+
+    width:40%;
+
+    height:100%;
+
+}
+
+
+
+
+
+/* Payment */
+
+
+.donation-page-payment{
+
+
+    margin-top:30px;
+
+    padding:20px;
+
+    border-radius:12px;
+
+}
+
+
+
+
+.donation-page-amount{
+
+
+    width:100%;
+
+    padding:12px;
+
+    margin:15px 0;
+
+    box-sizing:border-box;
+
+}
+
+
+
+
+.donation-page-methods{
+
+
+    display:flex;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+}
+
+
+
+
+.donation-page-methods button{
+
+
+    padding:12px 20px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+}
+
+
+
+
+
+.donation-page-donate-btn{
+
+
+    width:100%;
+
+    padding:14px;
+
+    margin-top:20px;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:17px;
+
+}
+
+
+
+
+
+
+@media(max-width:600px){
+
+
+    .donation-page-container{
+
+        padding:12px;
+
+    }
+
+
+
+    .donation-page-image-wrapper{
+
+
+        height:250px;
+
+    }
+
+
+
+
+    .donation-page-content{
+
+
+        padding:20px;
+
+    }
+
+
+
+    .donation-page-title{
+
+
+        font-size:24px;
+
+    }
+
+    .donation-page-methods button{
+
+
+        width:100%;
+
+    }
+
+
+
+}

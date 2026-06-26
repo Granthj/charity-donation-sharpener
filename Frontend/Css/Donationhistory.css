@@ -1,0 +1,296 @@
+/* Donation History Component Only */
+
+.donation-history-page {
+
+    width:100%;
+
+    min-height:100vh;
+
+    padding:20px;
+
+    box-sizing:border-box;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-start;
+
+}
+
+
+
+/* Main Container */
+
+.donation-history-page .donation-history-container {
+
+
+    width:100%;
+
+    max-width:700px;
+
+    background:#ffffff;
+
+    padding:25px;
+
+    border-radius:15px;
+
+    box-sizing:border-box;
+
+    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+
+
+}
+
+
+
+/* Heading */
+
+.donation-history-page .donation-title {
+
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+    font-size:26px;
+
+}
+
+
+
+/* Donation List */
+
+.donation-history-page .donation-list {
+
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+
+}
+
+
+
+/* Card */
+
+.donation-history-page .donation-card {
+
+
+    background:#f8fafc;
+
+    border-radius:12px;
+
+    padding:20px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+
+    border:1px solid #e5e7eb;
+
+
+}
+
+
+
+/* Charity Name */
+
+.donation-history-page .donation-card h3 {
+
+
+    margin:0;
+
+    font-size:20px;
+
+
+}
+
+
+
+/* Text */
+
+.donation-history-page .donation-card p {
+
+
+    margin:0;
+
+    font-size:15px;
+
+    color:#444;
+
+
+}
+
+
+
+/* Receipt Button */
+
+.donation-history-page .receipt-btn {
+
+
+    width:100%;
+
+    padding:12px;
+
+
+    border:none;
+
+    border-radius:8px;
+
+
+    background:#4f46e5;
+
+    color:white;
+
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    font-weight:600;
+
+
+    transition:0.2s;
+
+
+}
+
+
+
+.donation-history-page .receipt-btn:hover {
+
+
+    opacity:0.9;
+
+
+}
+
+
+
+
+
+/* Empty message */
+
+.donation-history-page .empty-message {
+
+
+    text-align:center;
+
+    padding:30px;
+
+    color:#777;
+
+
+}
+
+
+
+
+
+/* Tablet */
+
+@media(min-width:768px){
+
+
+    .donation-history-page {
+
+
+        padding:40px;
+
+
+    }
+
+
+
+    .donation-history-page .donation-history-container {
+
+
+        padding:35px;
+
+
+    }
+
+
+
+}
+
+
+
+
+
+
+/* Mobile */
+
+@media(max-width:480px){
+
+
+    .donation-history-page {
+
+
+        padding:15px;
+
+
+    }
+
+
+
+    .donation-history-page .donation-history-container {
+
+
+        padding:20px;
+
+        border-radius:10px;
+
+
+    }
+
+
+
+    .donation-history-page .donation-title {
+
+
+        font-size:21px;
+
+
+    }
+
+
+
+    .donation-history-page .donation-card {
+
+
+        padding:15px;
+
+
+    }
+
+
+
+    .donation-history-page .donation-card h3 {
+
+
+        font-size:17px;
+
+
+    }
+
+
+
+    .donation-history-page .donation-card p {
+
+
+        font-size:14px;
+
+
+    }
+
+
+
+}

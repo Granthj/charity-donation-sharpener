@@ -1,0 +1,166 @@
+.charity-reg-container{
+
+
+    width:100%;
+
+    max-width:600px;
+
+    margin:40px auto;
+
+    padding:25px;
+
+    background:#ffffff;
+
+    border-radius:15px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,0.12);
+
+    box-sizing:border-box;
+
+}
+
+.charity-reg-title{
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+    font-size:26px;
+
+}
+
+.charity-reg-field{
+
+
+    margin-bottom:18px;
+
+}
+
+.charity-reg-field label{
+
+
+    display:block;
+
+    margin-bottom:7px;
+
+    font-weight:600;
+
+    font-size:15px;
+
+}
+
+.charity-reg-field input,
+.charity-reg-field textarea,
+.charity-reg-field select{
+
+
+    width:100%;
+
+    padding:12px;
+
+    border:1px solid #ccc;
+
+    border-radius:8px;
+
+    font-size:15px;
+
+    outline:none;
+
+    box-sizing:border-box;
+
+}
+
+
+
+.charity-reg-field textarea{
+
+
+    height:100px;
+
+    resize:vertical;
+
+}
+
+
+
+.charity-reg-field input:focus,
+.charity-reg-field textarea:focus,
+.charity-reg-field select:focus{
+
+
+    border-color:#4a90e2;
+
+}
+
+.charity-reg-btn{
+
+
+    width:100%;
+
+    padding:13px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#2d89ef;
+
+    color:white;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+}
+
+
+
+.charity-reg-btn:hover{
+
+
+    background:#1b65b8;
+
+}
+
+
+@media(max-width:768px){
+
+
+    .charity-reg-container{
+
+        margin:25px 15px;
+
+        padding:20px;
+
+    }
+}
+
+
+@media(max-width:480px){
+
+
+    .charity-reg-title{
+
+        font-size:22px;
+
+    }
+
+
+    .charity-reg-field input,
+    .charity-reg-field textarea,
+    .charity-reg-field select{
+
+        font-size:14px;
+
+    }
+
+    .charity-reg-btn{
+
+        font-size:15px;
+
+    }
+
+
+}
