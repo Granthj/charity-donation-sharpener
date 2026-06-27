@@ -18,6 +18,6 @@ route.get('/charity-getData',CharityController.getCharity);
 route.get('/charity/:id',CharityController.getUniqueCharity);
 
 route.post('/pay',auth,paymentController.processDonation);
-route.get('/payment-status/:donarId',paymentController.donationStatus);
+route.get('/payment-status/:cashFreeRefId',paymentController.donationStatus);
 
 module.exports = route;

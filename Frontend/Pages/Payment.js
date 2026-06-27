@@ -1,6 +1,6 @@
 import { API_URL } from "../Src/Config.js";
 
-export function Payment(navigate,donationOrganisationId) {
+export function Payment(navigate, donationOrganisationId) {
 
     const container = document.createElement("div");
     container.innerHTML = `
@@ -15,32 +15,31 @@ export function Payment(navigate,donationOrganisationId) {
     </div>    
     `
     const cashfree = Cashfree({
-    mode: "sandbox",
-});
-container.querySelector("#renderBtn").addEventListener("click", async() => {
-    const phone = container.querySelector("#phone").value;
-    const amount = container.querySelector("#amount").value;
-    console.log(amount,'amamamaount')
-    const token = localStorage.getItem('token');
-    console.log(donationOrganisationId,'company id')
-    const res = await axios.post(`${API_URL}/pay`,{
-        phone:phone,
-        amount:amount,
-        donationOrganisationId:donationOrganisationId
-    },{
-        headers:{
-            Authorization:`Bearer ${token}`
-        }
-            
+        mode: "sandbox",
     });
-    const paymentSessionId = res.data.paymentSessionId;
-    const orderId = res.data.orderId;
+    container.querySelector("#renderBtn").addEventListener("click", async () => {
+        const phone = container.querySelector("#phone").value;
+        const amount = container.querySelector("#amount").value;
+        const token = localStorage.getItem('token');
+        // console.log(donationOrganisationId,'company id')
+        const res = await axios.post(`${API_URL}/pay`, {
+            phone: phone,
+            amount: amount,
+            donationOrganisationId: donationOrganisationId
+        }, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
 
-    let checkoutOptions = {
-        paymentSessionId: paymentSessionId,
-        redirectTarget: "_modal",
-    };
-    const result = await cashfree.checkout(checkoutOptions);
+        });
+        const paymentSessionId = res.data.paymentSessionId;
+        const orderId = res.data.orderId;
+
+        let checkoutOptions = {
+            paymentSessionId: paymentSessionId,
+            redirectTarget: "_modal",
+        };
+        const result = await cashfree.checkout(checkoutOptions);
         if (result.error) {
             console.log("User has closed the popup or there is some payment error, Check for Payment Status");
             console.log(result.error);
@@ -49,18 +48,28 @@ container.querySelector("#renderBtn").addEventListener("click", async() => {
             console.log("Payment will be redirected");
         }
         if (result.paymentDetails) {
-            console.log(orderId,'fghjk')
-            const res = await axios.get(`${API_URL}/payment-status/${orderId}`);
-            if(statusRes.data.orderStatus === "Success"){
+            console.log(orderId, 'fghjk')
+            let cashFreeRefId = orderId;
+            console.log(donationOrganisationId, 'icicicic')
+            const res = await axios.get(`${API_URL}/payment-status/${cashFreeRefId}`,
+                {
+                    params: {
+                        donationOrganisationId,
+                        amount
+                    }
+                }
+            );
+
+            if (res.data.donationStatus === "Success") {
                 alert("Your payment is" + res.data.orderStatus);
                 navigate(`/donation-page/${donationOrganisationId}`);
 
             }
-            console.log(res.data.orderStatus,'like here')
+            console.log(res.data.orderStatus, 'like here')
             console.log("Payment has been completed, Check for Payment Status");
             console.log(result.paymentDetails.paymentMessage);
         }
-    
-});
-return container;
+
+    });
+    return container;
 }

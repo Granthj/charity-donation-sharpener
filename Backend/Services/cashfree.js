@@ -12,7 +12,7 @@ exports.createOrder = async (
     customerPhone
 )=>{
     try{
-        console.log(orderId,'nanananan')
+  
         const expiryDate = new Date(Date.now() + 60 * 60 * 1000); // 1 hrs from now
         const formattedExpiryDate = expiryDate.toISOString();
         var request = {
@@ -43,7 +43,9 @@ exports.getPaymentStatus = async(orderId)=>{
 
     try{
         const today = new Date().toISOString().split("T")[0];
-        const response = await cashfree.PGOrderFetchPayments(today,orderId);
+   
+        const response = await cashfree.PGOrderFetchPayments(orderId,today);
+     
         let getOrderResponse = response.data;
         let orderStatus;
 

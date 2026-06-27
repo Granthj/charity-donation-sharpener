@@ -29,6 +29,16 @@ const Charity = db.define('Charity',{
         type:DataTypes.TEXT,
         allowNull:false
     },
+    totalDonation:{
+        type:DataTypes.DECIMAL(10,2),
+        defaultValue:0,
+        allowNull:true
+    },
+    totalDonations:{
+        type:DataTypes.INTEGER,
+        allowNull:true,
+        defaultValue:0
+    },
    category:{
     type:DataTypes.ENUM(
         'education',

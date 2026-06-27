@@ -94,41 +94,10 @@ export function Donation(navigate,id){
 
                         </div>
 
-                        <p>
-
-                            ₹20,000 raised of ₹1,00,000
-
-                        </p>
+                        <p id="donation-raised"></p>
+                        <p id="donation-count"></p>
 
                     </div>
-
-                    <div class="donation-page-payment">
-
-
-                        <h3>
-                            Make a Donation
-                        </h3>
-
-                        <input
-
-                        type="number"
-
-                        class="donation-page-amount"
-
-                        id="donation-page-amount"
-
-                        placeholder="Enter amount"
-
-                        >
-                        <h4>
-                            Payment Method
-                        </h4>
-
-                        <div class="donation-page-methods">
-                            <button>UPI</button>
-                            <button>Card</button>
-                            <button>Net Banking</button>
-                        </div>
 
                         <button class="donation-page-donate-btn">Donate Now</button>
                             
@@ -139,26 +108,23 @@ export function Donation(navigate,id){
 
     `;
 
-     const image = container.querySelector("#donation-page-image");
-
+    const image = container.querySelector("#donation-page-image");
 
     const title = container.querySelector(".donation-page-title");
 
-
     const category = container.querySelector(".donation-page-category");
-
 
     const location = container.querySelector(".donation-page-location");
 
-
     const mission = container.querySelector("#donation-page-mission");
-
 
     const description = container.querySelector("#donation-page-description");
 
-
     const goal = container.querySelector("#donation-page-goal");
 
+    const raised = container.querySelector("#donation-raised");
+
+    const count = container.querySelector("#donation-count");
 
 
     async function loadDonation(){
@@ -176,20 +142,19 @@ export function Donation(navigate,id){
 
             title.innerHTML = data.organizationName;
 
-
             category.innerHTML = data.category;
-
 
             location.innerHTML = `📍 ${data.location}`;
 
-
             mission.innerHTML = data.mission;
-
 
             description.innerHTML = data.description;
 
-
             goal.innerHTML = data.goal;
+
+            raised.innerHTML = `₹${data.totalDonation || 0}`;
+
+            count.innerHTML = `${data.totalDonations || 0} people donated`;
 
         }
         catch(err){

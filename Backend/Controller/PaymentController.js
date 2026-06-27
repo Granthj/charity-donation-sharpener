@@ -1,6 +1,8 @@
-const {createOrder,getPaymentStatus} = require('../Services/cashfree');
-const Donation = require('../Model/PaymentSchema');
+const { createOrder, getPaymentStatus } = require('../Services/cashfree');
+const Payment = require('../Model/PaymentSchema');
 const User = require('../Model/UserSchema');
+const Charity = require('../Model/CharitySchema');
+const Donation = require('../Model/DonationSchema');
 
 const processDonation = async (req, res) => {
     const cashFreeRefId = "Donation-" + Date.now();
@@ -11,9 +13,9 @@ const processDonation = async (req, res) => {
     const userID = req.userId;
     const userPhone = req.body.phone;
     // console.log(userID,'gagagagaga')
-    
+
     try {
-        
+
         const donationSessionId = await createOrder(
             cashFreeRefId,
             donateAmount,
@@ -22,46 +24,75 @@ const processDonation = async (req, res) => {
             userPhone
         );
 
-        await Donation.create({
+        await Payment.create({
             cashFreeRefId,//
             donationSessionId,//
             donateAmount,//
-            donarId:userID, //
-            donationOrganisationId:donationOrganisationId, //
+            donarId: userID, //
+            donationOrganisationId: donationOrganisationId, //
             donateCurrency,//
-            donationStatus:"Pending"//
+            donationStatus: "Pending"//
         });
-        
-        // console.log(req.userId,'hello')
-        const user = await User.findByPk(req.userId);
-        user.save();
-        res.json({paymentSessionId:donationSessionId,orderId:cashFreeRefId});
+
+        await Donation.create({
+            cashFreeRefId:cashFreeRefId,
+            userId:donarId,
+            charityId:donationOrganisationId,
+            amount:donateAmount
+        });
+
+        // const user = await User.findByPk(req.userId);
+        // user.save();
+
+        res.json({ paymentSessionId: donationSessionId, orderId: cashFreeRefId });
     }
-    catch(err){
-        console.log(err,'errororororor')
-        res.status(500).json({message:"Something went wrong"});
+    catch (err) {
+        console.log(err, 'errororororor')
+        res.status(500).json({ message: "Something went wrong" });
     }
 }
-const donationStatus = async(req,res)=>{
+const donationStatus = async (req, res) => {
 
-    try{
-        const {cashFreeRefId} = req.params;
-
+    try {
+        const { donationOrganisationId, amount } = req.query;
+        const { cashFreeRefId } = req.params;
         const status = await getPaymentStatus(cashFreeRefId);
 
         const updatePayment = await Payment.update(
-            {donationStatus:status},
+            { donationStatus: status },
             {
-                where:{
-                    donarId:cashFreeRefId
+                where: {
+                    cashFreeRefId: cashFreeRefId
                 }
             }
         );
-        res.json({cashFreeRefId,donationStatus:status});
+        console.log(updatePayment,'bnbnbnbnb')
+        const addAmount = await Charity.findByPk(donationOrganisationId);
+        if (addAmount) {
+
+            addAmount.totalDonation = Number(addAmount.totalDonation || 0) + Number(amount);
+
+            addAmount.totalDonations = Number(addAmount.totalDonations || 0) + 1;
+
+            await addAmount.save();
+
+        }
+        const updateDonation = await Donation.findOne({
+            where:{
+                cashFreeRefId:cashFreeRefId
+            }
+        });
+        if(updateDonation){
+            updateDonation.donationStatus = "Success";
+
+            await updateDonation.save();
+        }
+
+        res.json({ cashFreeRefId, donationStatus: status });
     }
-    catch(err){
+    catch (err) {
         console.log(err);
-        res.status(500).json({message:"Something went wrong not getting payment status"});
+        res.status(500).json({ message: "Something went wrong not getting payment status" });
     }
 }
 
