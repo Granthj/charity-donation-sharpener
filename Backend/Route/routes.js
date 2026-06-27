@@ -6,6 +6,7 @@ const loginController = require('../Controller/LoginController.js');
 const ProfileController = require('../Controller/ProfileController.js');
 const CharityController = require('../Controller/CharityController.js');
 const paymentController = require('../Controller/PaymentController.js');
+const donationHistoryController = require('../Controller/DonationHistoryController.js');
 
 route.post('/login',loginController);
 route.post('/signup',signupController);
@@ -17,7 +18,10 @@ route.post('/charity-registration',auth,CharityController.postCharity);
 route.get('/charity-getData',CharityController.getCharity);
 route.get('/charity/:id',CharityController.getUniqueCharity);
 
+route.get('/donation-history',auth,donationHistoryController.donationhistory);
+
 route.post('/pay',auth,paymentController.processDonation);
-route.get('/payment-status/:cashFreeRefId',paymentController.donationStatus);
+route.get('/payment-status/:cashFreeRefId',auth,paymentController.donationStatus);
+
 
 module.exports = route;

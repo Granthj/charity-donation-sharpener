@@ -14,6 +14,7 @@ export function Navbar(navigation) {
                 </div>
                 <ul class="nav-links">
                     <li><a href="/donation">Profile</a></li>
+                    <li><a href="/donation-history">Donation History</a></li>
                     <li><a href="/charity-registration">Add New Post</a></li>
                 </ul>
 

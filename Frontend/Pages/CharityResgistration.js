@@ -241,6 +241,7 @@ export function Charity(navigate){
             console.log(response.data,"charity registered");
             alert("Charity Registered Successfully");
             form.reset();
+            navigate('/');
         }
         catch(error){
             console.log(error.response?.data || error.message);

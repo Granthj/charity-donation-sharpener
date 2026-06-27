@@ -51,6 +51,9 @@ function render(route) {
     case "/donation":
       app.appendChild(Profile(navigate));
       break;
+    case "/donation-history":
+      app.appendChild(DonationHistory(navigate));
+      break;
     case "/payment":
       const params = new URLSearchParams(window.location.search);
       const organisationId = params.get("organisationId");

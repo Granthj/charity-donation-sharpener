@@ -83,7 +83,7 @@ const donationStatus = async (req, res) => {
             }
         });
         if(updateDonation){
-            updateDonation.donationStatus = "Success";
+            updateDonation.paymentStatus = "Success";
 
             await updateDonation.save();
         }
