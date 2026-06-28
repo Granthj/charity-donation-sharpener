@@ -35,24 +35,7 @@ const postCharity = async(req,res)=>{
 const getCharity = async(req,res)=>{
 
     try{
-        const {city} = req.query;
-
-        let CharityData;
-        if(city){
-            CharityData = await Charity.findAll({
-                where:{
-                    location:{
-                        [Op.like]:`%${city}%`
-                    }
-                }
-            });
-        }
-        else{
-            CharityData = await Charity.findAll();
-        }
-        if(CharityData.length === 0){
-            return res.status(400).json({success:false,msg:'no data found'});
-        }
+        CharityData = await Charity.findAll();
 
         res.status(200).json(CharityData);
     }

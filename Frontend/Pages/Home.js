@@ -1,5 +1,5 @@
 import { API_URL } from '../Src/Config.js';
-export function Home(navigate,city){
+export function Home(navigate, search) {
 
     const container = document.createElement('div');
 
@@ -17,27 +17,44 @@ export function Home(navigate,city){
         </div>
     `;
     const cardGrid = container.querySelector("#charity-card-grid");
-    async function createCart(){
+    async function createCart() {
 
-        try{
+        try {
             let url = `${API_URL}/charity-getData`;
 
-            if(city){
-                url = `${API_URL}/charity-getData?city=${city}`;
+            const response = await axios.get(url);
+
+            let cartData = response.data;
+
+            if (search) {
+                cartData = cartData.filter(data => {
+                    return (
+                        data.location.toLowerCase().includes(search.toLowerCase()) ||
+                        data.category.toLowerCase().includes(search.toLowerCase())
+                    );
+                });
             }
-            const cartData = await axios.get(url);
-            
+            console.log(cartData);
             cardGrid.innerHTML = "";
 
-            cartData.data.forEach(data=>{
+            if (cartData.length === 0) {
+                cardGrid.innerHTML = `
+
+                    <h3 class="no-charity">
+                        No charity found for this city
+                    </h3>
+                `;
+                return;
+            }
+            cartData.forEach(data => {
                 renderData(data);
             });
         }
-        catch(err){
+        catch (err) {
             console.log(err);
         }
     }
-    function renderData(data){
+    function renderData(data) {
         const card = document.createElement("div");
 
 
@@ -57,7 +74,7 @@ export function Home(navigate,city){
 
         const donateBtn = card.querySelector(".charity-card-page-btn");
 
-        donateBtn.addEventListener("click",()=>{
+        donateBtn.addEventListener("click", () => {
             navigate(`/donation-page/${data.id}`);
         });
 

@@ -48,22 +48,25 @@ export function Payment(navigate, donationOrganisationId) {
             console.log("Payment will be redirected");
         }
         if (result.paymentDetails) {
-      
+
             let cashFreeRefId = orderId;
 
+            const token = localStorage.getItem("token");
             const res = await axios.get(`${API_URL}/payment-status/${cashFreeRefId}`,
                 {
                     params: {
                         donationOrganisationId,
                         amount
+                    },
+                    headers: {
+                        Authorization: `Bearer ${token}`
                     }
                 }
             );
-
             if (res.data.donationStatus === "Success") {
                 alert("Your payment is" + res.data.orderStatus);
                 // navigate(`/donation-page/${donationOrganisationId}`);
-                window.history.replaceState({},"",`/donation-page/${donationOrganisationId}`);
+                window.history.replaceState({}, "", `/donation-page/${donationOrganisationId}`);
 
                 window.dispatchEvent(new PopStateEvent("popstate"));
 

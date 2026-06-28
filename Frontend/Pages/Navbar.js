@@ -42,8 +42,8 @@ export function Navbar(navigation) {
     let debounceTimer;
     function doSearch() {
         clearTimeout(debounceTimer);
-        const city = searchInput.value.trim();
-        const newUrl = city ? `/?city=${encodeURIComponent(city)}` : `/`;
+        const search = searchInput.value.trim();
+        const newUrl = search ? `/?search=${encodeURIComponent(search)}` : `/`;
         navigation(newUrl);
     }
 

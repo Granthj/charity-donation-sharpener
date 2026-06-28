@@ -33,8 +33,10 @@ function render(route) {
 
   if (path === "/") {
     const params = new URLSearchParams(window.location.search);
-    const city = params.get("city") || "";
-    app.appendChild(Home(navigate, city));
+    // const city = params.get("city") || "";
+    // const category = params.get("category") || "";
+    const search = params.get("search") || "";
+    app.appendChild(Home(navigate, search));
     return;
   }
 

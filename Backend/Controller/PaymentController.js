@@ -1,4 +1,5 @@
 const { createOrder, getPaymentStatus } = require('../Services/cashfree');
+const sendMail = require('../Utils/nodemailer');
 const Payment = require('../Model/PaymentSchema');
 const User = require('../Model/UserSchema');
 const Charity = require('../Model/CharitySchema');
@@ -87,11 +88,42 @@ const donationStatus = async (req, res) => {
 
             await updateDonation.save();
         }
+        const user = await User.findOne({
+            where:{
+                id:req.userId
+            }
+        })
+         await sendMail(user.email,
+
+            "Donation Successful",
+
+            `
+                <h2>Thank you for your donation ❤️</h2>
+
+                <p>Hello ${user.name},</p>
+
+                <p>Your donation details:</p>
+
+                <p>
+                Amount: ₹${amount}
+                </p>
+
+                <p>
+                Status: Success Payment Verification
+                </p>
+
+                <br>
+
+                <p>
+                Thank you for supporting our charity. ${addAmount.organizationName}
+                </p>
+            `
+        );
 
         res.json({ cashFreeRefId, donationStatus: status });
     }
     catch (err) {
-        console.log(err);
+        console.log(err,'rarararara');
         res.status(500).json({ message: "Something went wrong not getting payment status" });
     }
 }
