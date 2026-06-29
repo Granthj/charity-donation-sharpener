@@ -87,7 +87,6 @@ const getImpactCharity = async(req,res)=>{
                 ['createdAt',"DESC"]
             ]
         });
-        // console.log(JSON.stringify(donations,null,2),"bhbhbhbhb");
     
         res.json(donations);
     }
