@@ -7,6 +7,7 @@ import { DonationHistory } from "./Pages/DonationHistory.js";
 import { Charity } from "./Pages/CharityResgistration.js";
 import { Donation } from "./Pages/DonationPage.js";
 import { Home } from "./Pages/Home.js";
+import { ImpactReports } from "./Pages/ImpactPage.js";
 
 const app = document.getElementById("app");
 const publicRoutes = ["/login", "/sign-up"];
@@ -63,6 +64,9 @@ function render(route) {
       break;
     case "/charity-registration":
       app.appendChild(Charity(navigate));
+      break;
+    case "/impact-report":
+      app.appendChild(ImpactReports(navigate));
       break;
     default:
       app.innerHTML = "<h2>404 Page Not Found</h2>";

@@ -1,5 +1,7 @@
 const Charity = require('../Model/CharitySchema');
 const User = require('../Model/UserSchema');
+const ImpactReport = require('../Model/ImpactReportSchema');
+const Donation = require('../Model/DonationSchema');
 const { Op } = require("sequelize");
 const postCharity = async(req,res)=>{
 
@@ -47,14 +49,12 @@ const getCharity = async(req,res)=>{
 const getUniqueCharity = async(req,res)=>{
 
     try{
-
         const id = req.params.id;
         const charity = await Charity.findOne({
             where:{
                 id:id
             }
         });
-
         if(!charity){
             return res.status(400).json({success:false,msg:'no data found'});
         }
@@ -65,8 +65,40 @@ const getUniqueCharity = async(req,res)=>{
         res.status(500).json({success:false});
     }
 }
+const getImpactCharity = async(req,res)=>{
+
+    try{
+        const donations = await Donation.findAll({
+            where:{
+                userId:req.userId
+            },
+            include:[
+                {
+                    model:Charity,
+                    attributes:['id','organizationName'],
+                    include:[
+                        {
+                            model:ImpactReport
+                        }
+                    ]
+                }
+            ],
+            order:[
+                ['createdAt',"DESC"]
+            ]
+        });
+        // console.log(JSON.stringify(donations,null,2),"bhbhbhbhb");
+    
+        res.json(donations);
+    }
+    catch(err){
+        console.log(err)
+    }
+
+}
 module.exports = {
     postCharity,
     getCharity,
-    getUniqueCharity
+    getUniqueCharity,
+    getImpactCharity
 }

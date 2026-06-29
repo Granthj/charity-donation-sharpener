@@ -6,6 +6,7 @@ const db = require('./Utils/db.js');
 const User = require('./Model/UserSchema.js');
 const Charity = require('./Model/CharitySchema.js');
 const Donation = require('./Model/DonationSchema.js');
+const ImpactReport = require('./Model/ImpactReportSchema.js');
 // const bodyParser = require('body-parser');
 // bodyParser.json();
 
@@ -20,6 +21,10 @@ User.hasMany(Charity,{foreignKey: "userId"});
 
 Donation.belongsTo(Charity,{foreignKey:"charityId"});
 Charity.hasMany(Donation,{foreignKey:"charityId"});
+
+Charity.hasMany(ImpactReport,{foreignKey:"charityId"});
+ImpactReport.belongsTo(Charity,{foreignKey:"charityId"});
+
 db.sync().then(()=>{
     app.listen(process.env.PORT || 3000,()=>{
         console.log('Connected to server 3000');

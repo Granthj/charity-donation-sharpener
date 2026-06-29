@@ -1,0 +1,249 @@
+.impact-page-container {
+    width: 100%;
+    min-height: 100vh;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    background: #f5f7fb;
+}
+
+
+.impact-page-card {
+    max-width: 900px;
+    margin: auto;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+
+
+/* Header */
+
+.impact-page-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+
+.impact-page-header h1 {
+
+    font-size: 32px;
+    margin: 0;
+    color: #222;
+    font-weight: 700;
+
+}
+
+
+.impact-page-header p {
+
+    margin-top: 10px;
+    color: #666;
+    font-size: 16px;
+
+}
+
+
+
+/* Report List */
+
+#impact-report-list {
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+
+
+
+/* Individual Impact Card */
+
+.impact-report-item {
+
+    background: #fafafa;
+    border: 1px solid #e5e5e5;
+    border-radius: 14px;
+    padding: 22px;
+    transition: 0.3s ease;
+
+}
+
+
+.impact-report-item:hover {
+
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+
+}
+
+
+
+.impact-report-item h2 {
+
+    margin: 0 0 15px;
+    font-size: 24px;
+    color: #1d3557;
+
+}
+
+
+
+.impact-report-item h3 {
+
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #2a9d8f;
+    font-size: 19px;
+
+}
+
+
+
+.impact-report-item p {
+
+    margin: 8px 0;
+    color: #555;
+    line-height: 1.6;
+    font-size: 15px;
+
+}
+
+
+
+.impact-report-item hr {
+
+    margin: 20px 0;
+    border: none;
+    border-top: 1px solid #ddd;
+
+}
+
+
+
+/* Donation Details */
+
+.impact-report-item p:first-of-type {
+
+    font-weight: 600;
+
+}
+
+
+
+
+/* Empty State */
+
+.no-impact-report {
+
+    text-align: center;
+    padding: 30px;
+    color: #777;
+    font-size: 18px;
+
+}
+
+
+
+
+/* Tablet */
+
+@media(max-width:768px){
+
+
+    .impact-page-container {
+
+        padding: 20px 12px;
+
+    }
+
+
+    .impact-page-card {
+
+        padding: 20px;
+        border-radius: 14px;
+
+    }
+
+
+    .impact-page-header h1 {
+
+        font-size: 26px;
+
+    }
+
+
+    .impact-report-item {
+
+        padding: 18px;
+
+    }
+
+
+    .impact-report-item h2 {
+
+        font-size: 21px;
+
+    }
+
+}
+
+
+
+
+/* Mobile */
+
+@media(max-width:480px){
+
+
+    .impact-page-container {
+
+        padding: 15px 8px;
+
+    }
+
+
+    .impact-page-card {
+
+        padding: 15px;
+
+    }
+
+
+    .impact-page-header h1 {
+
+        font-size: 22px;
+
+    }
+
+
+    .impact-page-header p {
+
+        font-size: 14px;
+
+    }
+
+
+    .impact-report-item h2 {
+
+        font-size: 19px;
+
+    }
+
+
+    .impact-report-item h3 {
+
+        font-size: 16px;
+
+    }
+
+
+    .impact-report-item p {
+
+        font-size: 14px;
+
+    }
+
+}

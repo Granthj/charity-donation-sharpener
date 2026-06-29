@@ -16,6 +16,7 @@ export function Navbar(navigation) {
                     <li><a href="/donation">Profile</a></li>
                     <li><a href="/donation-history">Donation History</a></li>
                     <li><a href="/charity-registration">Add New Post</a></li>
+                    <li><a href="/impact-report">Impact Report</a></li>
                 </ul>
 
                 <div class="menu-toggle">☰</div>

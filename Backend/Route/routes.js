@@ -8,6 +8,7 @@ const CharityController = require('../Controller/CharityController.js');
 const paymentController = require('../Controller/PaymentController.js');
 const donationHistoryController = require('../Controller/DonationHistoryController.js');
 
+
 route.post('/login',loginController);
 route.post('/signup',signupController);
 
@@ -22,6 +23,8 @@ route.get('/donation-history',auth,donationHistoryController.donationhistory);
 
 route.post('/pay',auth,paymentController.processDonation);
 route.get('/payment-status/:cashFreeRefId',auth,paymentController.donationStatus);
+
+route.get('/impact-report',auth,CharityController.getImpactCharity);
 
 
 module.exports = route;
