@@ -39,7 +39,15 @@ body {
     font-size: 20px;
     font-weight: bold;
 }
+#logo-link {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
 
+#logo-link:hover {
+    text-decoration: none;
+}
 /* Links */
 .nav-links {
     list-style: none;

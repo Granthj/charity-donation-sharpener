@@ -34,6 +34,7 @@ route.get('/admin/charities',adminCharityController.adminGetAllCharities);
 route.patch('/admin/charity-status/:id',adminCharityController.updateCharityStatus);
 
 route.get('/admin/getAllDonation',adminDonationController.adminGetAllDonations);
+route.get('/admin/view-donarList/:charityId',adminDonationController.adminGetCharityId);
 
 
 module.exports = route;

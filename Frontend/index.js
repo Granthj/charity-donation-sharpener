@@ -12,6 +12,7 @@ import { ImpactReports } from "./Pages/ImpactPage.js";
 import { AdminListUsers } from "./Pages/AdminListUsers.js";
 import { AdminCharityList } from "./Pages/AdminCharityList.js";
 import { AdminDonationList } from "./Pages/AdminUserDonationList.js";
+import { AdminViewCharityDonarList } from "./Pages/AdminViewCharityDonarList.js";
 
 const app = document.getElementById("app");
 const publicRoutes = ["/login", "/sign-up"];
@@ -38,13 +39,15 @@ function render(route) {
 
   if (path === "/") {
     const params = new URLSearchParams(window.location.search);
-    // const city = params.get("city") || "";
-    // const category = params.get("category") || "";
     const search = params.get("search") || "";
     app.appendChild(Home(navigate, search));
     return;
   }
-
+  if(path.startsWith("/admin-charity-donors")){
+    const charityId = path.split("/")[2];
+    app.appendChild(AdminViewCharityDonarList(navigate, charityId));
+    return;
+  } 
   switch (path) {
     case "/login":
       app.appendChild(Login(navigate));
@@ -95,19 +98,20 @@ export function navigate(route) {
 }
 
 window.addEventListener("popstate", () => {
-  render(window.location.pathname) + window.location.search;
+  render(window.location.pathname + window.location.search);
 });
 
 function init() {
   const token = localStorage.getItem("token");
-  const currentRoute = window.location.pathname;
+  const currentRoute = window.location.pathname + window.location.search;
+  const path = window.location.pathname;
 
   // On a real page refresh, drop any leftover search query
   // if (window.location.search) {
   //   window.history.replaceState({}, "", currentRoute || "/");
   // }
 
-  if (!token && !publicRoutes.includes(currentRoute)) {
+  if (!token && !publicRoutes.includes(path)) {
     render("/login");
   } else {
     render(currentRoute || "/");

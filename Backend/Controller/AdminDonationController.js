@@ -1,6 +1,7 @@
 const Donation = require('../Model/DonationSchema');
 const ImpactReport = require('../Model/ImpactReportSchema');
 const Charity = require('../Model/CharitySchema');
+const User = require('../Model/UserSchema');
 
 const adminGetAllDonations = async(req,res)=>{
 
@@ -32,21 +33,28 @@ const adminGetAllDonations = async(req,res)=>{
 const adminGetCharityId = async(req,res)=>{
 
     try{
-        const {id} = req.params;
+        const {charityId} = req.params;
 
-        const donation = await Donation.findOne({
+        const donations = await Donation.findAll({
             where:{
-                id:id
-            }
+                charityId:charityId
+            },
+            include:[
+                {
+                    model:User,
+                    attributes:['id','name','email']
+                }  
+            ],
+            order:[
+                ['createdAt','DESC']
+            ]
         });
 
-        if(!donation){
+        if(!donations){
             return res.status(404).json({message:"Donation not found"});
         }
 
-        const charityId = donation.charityId;
-
-        res.status(200).json(charityId);
+        res.status(200).json(donations);
     }
     catch(err){
         console.log(err);

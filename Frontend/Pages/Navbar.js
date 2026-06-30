@@ -3,26 +3,28 @@ import { API_URL } from "../src/config.js";
 export function Navbar(navigation) {
 
     const container = document.createElement('div');
+    const isAdminPage = window.location.pathname.startsWith("/admin");
     container.innerHTML = `
         <nav class="nav">
             <div class="nav-container">
-                <div class="logo">ExpenseApp</div>
-                
+                <div class="logo"><a href="/" id="logo-link">Donation Company</a></div>
+                ${!isAdminPage ? `
                 <div class="search-box">
-                    <input type="text" id="charity-search" placeholder="Search city...">
-                    <button id="search-btn">Search</button>
+                    <input type="text" id="charity-search" placeholder="Search by city or category">
                 </div>
+                ` : ''}
+                ${!isAdminPage ? `
                 <ul class="nav-links">
                     <li><a href="/donation">Profile</a></li>
                     <li><a href="/donation-history">Donation History</a></li>
                     <li><a href="/charity-registration">Add New Post</a></li>
                     <li><a href="/impact-report">Impact Report</a></li>
-                </ul>
+                </ul>` : ''}
 
-                <div class="menu-toggle">☰</div>
+                ${!isAdminPage ? `<div class="menu-toggle">☰</div>` : ''}
             </div>
         </nav>
-    `
+    `;
     const navLinks = container.querySelectorAll('.nav-links a');
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
@@ -37,31 +39,36 @@ export function Navbar(navigation) {
             }
         })
     });
-    const searchInput = container.querySelector("#charity-search");
-    const searchBtn = container.querySelector("#search-btn");
 
-    let debounceTimer;
-    function doSearch() {
-        clearTimeout(debounceTimer);
-        const search = searchInput.value.trim();
-        const newUrl = search ? `/?search=${encodeURIComponent(search)}` : `/`;
-        navigation(newUrl);
+    const searchInput = container.querySelector("#charity-search");
+
+    if (searchInput) {
+        let debounceTimer;
+        function doSearch() {
+            clearTimeout(debounceTimer);
+            const search = searchInput.value.trim();
+            const newUrl = search ? `/?search=${encodeURIComponent(search)}` : `/`;
+            navigation(newUrl);
+        }
+
+        searchInput.addEventListener("input", () => {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(doSearch, 1000);
+        });
     }
 
-    searchInput.addEventListener("input", () => {
-        clearTimeout(debounceTimer);
-        debounceTimer = setTimeout(doSearch, 1000);
-    });
-
-    searchBtn.addEventListener("click", doSearch);
-
-    // mobile toggle
     const toggle = container.querySelector('.menu-toggle');
     const links = container.querySelector('.nav-links');
 
-    toggle.addEventListener('click', () => {
-        links.classList.toggle('active');
-    });
+    if (toggle) {
+        toggle.addEventListener('click', () => {
+            if (links) {
+                links.classList.toggle('active');
+            }
+        });
+    } else {
+        console.warn('Navbar: .menu-toggle element not found in rendered HTML');
+    }
 
     return container;
 }

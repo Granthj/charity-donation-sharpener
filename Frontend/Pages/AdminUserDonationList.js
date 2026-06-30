@@ -127,7 +127,7 @@ export function AdminDonationList(navigate){
                     </td>
                 `;
                 row.querySelector(".view-donors-btn").addEventListener("click",()=>{
-                    navigate(`/admin/charity-donors/${donation.charityId}`);
+                    navigate(`/admin-charity-donors/${donation.charityId}`);
                 });
                 tableBody.appendChild(row);
             });

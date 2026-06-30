@@ -22,6 +22,9 @@ User.hasMany(Charity,{foreignKey: "userId"});
 Donation.belongsTo(Charity,{foreignKey:"charityId"});
 Charity.hasMany(Donation,{foreignKey:"charityId"});
 
+Donation.belongsTo(User,{foreignKey:'userId'});
+User.hasMany(Donation,{foreignKey:'userId'});
+
 Charity.hasMany(ImpactReport,{foreignKey:"charityId"});
 ImpactReport.belongsTo(Charity,{foreignKey:"charityId"});
 
