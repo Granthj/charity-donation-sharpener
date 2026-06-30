@@ -67,10 +67,10 @@ const Charity = db.define('Charity',{
         type:DataTypes.TEXT,
         allowNull:true
     },
-    // status:{
-    //     type:DataTypes.ENUM('pending','approved','rejected'),
-    //     defaultValue:'pending'
-    // }
+    status:{
+        type:DataTypes.ENUM('pending','approved','rejected'),
+        defaultValue:'pending'
+    }
 });
 
 module.exports = Charity;

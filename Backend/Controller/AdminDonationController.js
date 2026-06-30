@@ -1,13 +1,23 @@
 const Donation = require('../Model/DonationSchema');
 const ImpactReport = require('../Model/ImpactReportSchema');
+const Charity = require('../Model/CharitySchema');
 
 const adminGetAllDonations = async(req,res)=>{
 
     try{
 
-        const donations = await Donation.findAll();
-
-        if(!donations){
+        const donations = await Donation.findAll({
+            include:[
+                {
+                    model:Charity,
+                    attributes:['organizationName']
+                }
+            ],
+            order:[
+                ['createdAt',"DESC"]
+            ]
+        });
+        if(donations.length === 0){
             return res.status(404).json({msg:"no donation found"});
         }
 
@@ -75,5 +85,6 @@ const adminUpdateImpactReport = async(req,res)=>{
 }
 module.exports = {
     adminGetAllDonations,
+    adminGetCharityId,
     adminUpdateImpactReport
 }

@@ -26,6 +26,10 @@ export function Home(navigate, search) {
 
             let cartData = response.data;
 
+            cartData = cartData.filter(data => {
+                return data.status !== "pending" && data.status !== "rejected";
+            });
+
             if (search) {
                 cartData = cartData.filter(data => {
                     return (
@@ -34,7 +38,7 @@ export function Home(navigate, search) {
                     );
                 });
             }
-            console.log(cartData);
+            // console.log(cartData);
             cardGrid.innerHTML = "";
 
             if (cartData.length === 0) {

@@ -6,7 +6,10 @@ const loginController = require('../Controller/LoginController.js');
 const ProfileController = require('../Controller/ProfileController.js');
 const CharityController = require('../Controller/CharityController.js');
 const paymentController = require('../Controller/PaymentController.js');
+const adminGetAllController = require('../Controller/AdminGetAllUsersController.js');
 const donationHistoryController = require('../Controller/DonationHistoryController.js');
+const adminCharityController = require('../Controller/AdminCharitiesController.js');
+const adminDonationController = require('../Controller/AdminDonationController.js');
 
 
 route.post('/login',loginController);
@@ -25,6 +28,12 @@ route.post('/pay',auth,paymentController.processDonation);
 route.get('/payment-status/:cashFreeRefId',auth,paymentController.donationStatus);
 
 route.get('/impact-report',auth,CharityController.getImpactCharity);
+
+route.get('/admin/users',adminGetAllController);
+route.get('/admin/charities',adminCharityController.adminGetAllCharities);
+route.patch('/admin/charity-status/:id',adminCharityController.updateCharityStatus);
+
+route.get('/admin/getAllDonation',adminDonationController.adminGetAllDonations);
 
 
 module.exports = route;

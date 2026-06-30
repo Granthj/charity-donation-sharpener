@@ -1,0 +1,290 @@
+/* Admin Charity Approval */
+
+
+.admin-charity-container{
+
+
+    min-height:100vh;
+
+    background:#f4f6f9;
+
+    padding:30px;
+
+
+}
+
+
+
+.admin-charity-card{
+
+
+    max-width:1200px;
+
+    margin:auto;
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:18px;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.08);
+
+
+}
+
+
+
+.admin-charity-title{
+
+
+    text-align:center;
+
+    font-size:30px;
+
+    margin-bottom:30px;
+
+    color:#222;
+
+
+}
+
+
+
+.admin-charity-table-wrapper{
+
+
+    width:100%;
+
+    overflow-x:auto;
+
+
+}
+
+
+
+.admin-charity-table{
+
+
+    width:100%;
+
+    border-collapse:collapse;
+
+
+}
+
+
+
+.admin-charity-table th{
+
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:15px;
+
+    text-align:left;
+
+
+}
+
+
+
+.admin-charity-table td{
+
+
+    padding:14px;
+
+    border-bottom:1px solid #ddd;
+
+    color:#444;
+
+
+}
+
+
+
+.admin-charity-table tr:hover{
+
+
+    background:#f8fafc;
+
+
+}
+
+
+
+/* Status */
+
+
+.charity-status{
+
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+}
+
+
+
+.charity-status.pending{
+
+    background:#fef3c7;
+
+    color:#92400e;
+
+}
+
+
+
+.charity-status.approved{
+
+    background:#dcfce7;
+
+    color:#166534;
+
+}
+
+
+
+.charity-status.rejected{
+
+    background:#fee2e2;
+
+    color:#991b1b;
+
+}
+
+
+
+
+
+/* Buttons */
+
+
+.approve-btn,
+.reject-btn{
+
+
+    border:none;
+
+    padding:8px 14px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    color:white;
+
+    margin:3px;
+
+}
+
+
+
+.approve-btn{
+
+
+    background:#16a34a;
+
+
+}
+
+
+
+.reject-btn{
+
+
+    background:#dc2626;
+
+
+}
+
+
+
+.approve-btn:hover{
+
+    background:#15803d;
+
+}
+
+
+
+.reject-btn:hover{
+
+    background:#b91c1c;
+
+}
+
+
+
+
+
+@media(max-width:768px){
+
+
+    .admin-charity-container{
+
+        padding:15px;
+
+    }
+
+
+    .admin-charity-card{
+
+        padding:20px;
+
+    }
+
+
+    .admin-charity-title{
+
+        font-size:24px;
+
+    }
+
+
+    .admin-charity-table th,
+    .admin-charity-table td{
+
+        font-size:14px;
+
+        padding:10px;
+
+    }
+
+
+}
+
+
+
+
+
+@media(max-width:480px){
+
+
+    .admin-charity-title{
+
+        font-size:21px;
+
+    }
+
+
+    .approve-btn,
+    .reject-btn{
+
+
+        padding:6px 10px;
+
+        font-size:12px;
+
+
+    }
+
+
+}

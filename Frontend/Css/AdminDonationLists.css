@@ -1,0 +1,208 @@
+.admin-donation-page{
+
+    width:100%;
+    min-height:100vh;
+
+    padding:30px;
+
+    background:#f5f7fb;
+
+    box-sizing:border-box;
+
+}
+
+
+.admin-donation-card{
+
+
+    max-width:1100px;
+
+    margin:auto;
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:15px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+
+
+}
+
+
+
+.admin-donation-title{
+
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+    font-size:28px;
+
+    color:#222;
+
+}
+
+
+
+
+.admin-donation-table-wrapper{
+
+
+    width:100%;
+
+    overflow-x:auto;
+
+
+}
+
+
+
+
+.admin-donation-table{
+
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    min-width:700px;
+
+
+}
+
+
+
+.admin-donation-table th{
+
+
+    background:#111827;
+
+    color:white;
+
+    padding:14px;
+
+    text-align:left;
+
+
+}
+
+
+
+.admin-donation-table td{
+
+
+    padding:14px;
+
+    border-bottom:1px solid #ddd;
+
+    color:#333;
+
+
+}
+
+
+
+.admin-donation-table tr:hover{
+
+
+    background:#f8fafc;
+
+
+}
+
+
+
+
+.view-donors-btn{
+
+
+    padding:9px 15px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#2563eb;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:14px;
+
+
+}
+
+
+
+.view-donors-btn:hover{
+
+
+    background:#1d4ed8;
+
+
+}
+
+
+
+
+
+@media(max-width:768px){
+
+
+.admin-donation-page{
+
+    padding:15px;
+
+}
+
+
+
+.admin-donation-card{
+
+    padding:15px;
+
+}
+
+
+
+.admin-donation-title{
+
+    font-size:22px;
+
+}
+
+
+
+}
+
+
+
+
+
+@media(max-width:480px){
+
+
+.admin-donation-title{
+
+    font-size:20px;
+
+}
+
+
+.view-donors-btn{
+
+
+    padding:7px 10px;
+
+    font-size:12px;
+
+
+}
+
+
+
+}

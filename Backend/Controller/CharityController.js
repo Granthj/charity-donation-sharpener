@@ -24,7 +24,8 @@ const postCharity = async(req,res)=>{
         goal:goal,
         category:category,
         mission:mission,
-        image:image
+        image:image,
+        status:'pending'
     });
         res.status(201).json({success:true,charity});
     }

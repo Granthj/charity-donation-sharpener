@@ -1,0 +1,207 @@
+/* Admin Users Page */
+
+
+.admin-users-container{
+
+    min-height:100vh;
+
+    background:#f4f6f9;
+
+    padding:30px;
+
+}
+
+
+
+.admin-users-card{
+
+
+    max-width:1000px;
+
+    margin:auto;
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:18px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+
+
+}
+
+
+
+.admin-users-title{
+
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+    font-size:30px;
+
+    color:#222;
+
+
+}
+
+
+
+
+.admin-users-table-wrapper{
+
+    width:100%;
+
+    overflow-x:auto;
+
+
+}
+
+
+
+.admin-users-table{
+
+
+    width:100%;
+
+    border-collapse:collapse;
+
+
+}
+
+
+
+.admin-users-table th{
+
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:15px;
+
+    text-align:left;
+
+
+}
+
+
+
+.admin-users-table td{
+
+
+    padding:14px;
+
+    border-bottom:1px solid #ddd;
+
+    color:#444;
+
+
+}
+
+
+
+.admin-users-table tr:hover{
+
+
+    background:#f8fafc;
+
+
+}
+
+
+
+.delete-user-btn{
+
+
+    background:#dc2626;
+
+    color:white;
+
+    border:none;
+
+    padding:8px 15px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:14px;
+
+
+}
+
+
+
+.delete-user-btn:hover{
+
+
+    background:#b91c1c;
+
+
+}
+
+
+
+
+
+@media(max-width:768px){
+
+
+    .admin-users-container{
+
+        padding:15px;
+
+    }
+
+
+    .admin-users-card{
+
+        padding:20px;
+
+    }
+
+
+    .admin-users-title{
+
+        font-size:24px;
+
+    }
+
+
+    .admin-users-table th,
+    .admin-users-table td{
+
+        padding:10px;
+
+        font-size:14px;
+
+    }
+
+
+}
+
+
+
+
+
+@media(max-width:480px){
+
+
+    .admin-users-card{
+
+        padding:15px;
+
+    }
+
+
+    .delete-user-btn{
+
+        padding:6px 10px;
+
+    }
+
+
+}
