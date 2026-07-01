@@ -13,6 +13,8 @@ import { AdminListUsers } from "./Pages/AdminListUsers.js";
 import { AdminCharityList } from "./Pages/AdminCharityList.js";
 import { AdminDonationList } from "./Pages/AdminUserDonationList.js";
 import { AdminViewCharityDonarList } from "./Pages/AdminViewCharityDonarList.js";
+import { CharityOwnerDonations } from "./Pages/DonationList.js";
+import { CreateImpactReport } from "./Pages/CreateImpactReport.js";
 
 const app = document.getElementById("app");
 const publicRoutes = ["/login", "/sign-up"];
@@ -48,6 +50,12 @@ function render(route) {
     app.appendChild(AdminViewCharityDonarList(navigate, charityId));
     return;
   } 
+  if(path.startsWith("/create-impact-report")){
+    const donarId = path.split("/")[2];
+    const charityId = path.split("/")[3];
+    app.appendChild(CreateImpactReport(navigate, donarId,charityId));
+    return;
+  } 
   switch (path) {
     case "/login":
       app.appendChild(Login(navigate));
@@ -59,7 +67,7 @@ function render(route) {
       app.appendChild(Profile(navigate));
       break;
     case "/donation":
-      app.appendChild(Profile(navigate));
+      app.appendChild(CharityOwnerDonations(navigate));
       break;
     case "/donation-history":
       app.appendChild(DonationHistory(navigate));

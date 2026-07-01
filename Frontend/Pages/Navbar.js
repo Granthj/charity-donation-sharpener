@@ -4,6 +4,9 @@ export function Navbar(navigation) {
 
     const container = document.createElement('div');
     const isAdminPage = window.location.pathname.startsWith("/admin");
+    const isCharity = JSON.parse(localStorage.getItem('isCharity'));
+    // const isCharity = localStorage.getItem('isCharity');
+    // console.log('isCharity:', isCharity);
     container.innerHTML = `
         <nav class="nav">
             <div class="nav-container">
@@ -15,9 +18,9 @@ export function Navbar(navigation) {
                 ` : ''}
                 ${!isAdminPage ? `
                 <ul class="nav-links">
-                    <li><a href="/donation">Profile</a></li>
+                    <li><a href="/profile">Profile</a></li>
                     <li><a href="/donation-history">Donation History</a></li>
-                    <li><a href="/charity-registration">Add New Post</a></li>
+                    ${isCharity ? `<li><a href="/charity-registration">Add New Post</a></li>` : ''}
                     <li><a href="/impact-report">Impact Report</a></li>
                 </ul>` : ''}
 

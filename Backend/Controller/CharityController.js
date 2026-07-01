@@ -95,7 +95,7 @@ const getImpactCharity = async(req,res)=>{
         console.log(err)
     }
 
-}
+}    
 module.exports = {
     postCharity,
     getCharity,

@@ -28,6 +28,9 @@ User.hasMany(Donation,{foreignKey:'userId'});
 Charity.hasMany(ImpactReport,{foreignKey:"charityId"});
 ImpactReport.belongsTo(Charity,{foreignKey:"charityId"});
 
+Donation.hasOne(ImpactReport,{foreignKey:"donationId"});
+ImpactReport.belongsTo(Donation,{foreignKey:"donationId"});
+
 db.sync().then(()=>{
     app.listen(process.env.PORT || 3000,()=>{
         console.log('Connected to server 3000');

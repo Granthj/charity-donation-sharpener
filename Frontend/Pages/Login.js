@@ -55,8 +55,10 @@ export function Login(navigate) {
             if (!response.data.token) {
                 throw new Error("No token received");
             }
-            
+            // console.log('Login response:', response.data.booleanValue);
             localStorage.setItem('token', response.data.token);
+            localStorage.setItem('isCharity', JSON.stringify(response.data.booleanValue));
+            // localStorage.setItem('isCharity', response.data.booleanValue);
             // console.log()
             alert('Log in successfully');
             navigate("/");
@@ -68,7 +70,7 @@ export function Login(navigate) {
     container.querySelector('#signup-link').addEventListener('click', (e) => {
         e.preventDefault();
         navigate('/sign-up');
-
+        
     });
     return container;
 }

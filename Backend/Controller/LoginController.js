@@ -18,18 +18,23 @@ const login = async(req,res)=>{
         const login = await User.findOne({
             where:{
                 email:email
-
             }
         });
         
         if(login === null){
             return res.status(404).json({emailError:true,passwordError:false,message:"Email not found",success:false,token:null});
         }
+        const accountType = login.role; 
+        let booleanValue = false;
+        
+        if(accountType === 'charity'){
+            booleanValue = true;
+        }
         const hashedPassword = await bcrypt.compare(password,login.password);
         if(!hashedPassword){
             return res.status(403).json({emailError:false,passwordError:true,message:"Password not matched",success:false,token:null});
         }
-        res.status(200).json({emailError:false,passwordError:false,message:"All Good",success:true,token:generateToken(login.id)}); 
+        res.status(200).json({emailError:false,passwordError:false,message:"All Good",success:true,token:generateToken(login.id),accountType:accountType,booleanValue:booleanValue}); 
     }
     catch(err){
         return res.status(500).send('Something wrong');

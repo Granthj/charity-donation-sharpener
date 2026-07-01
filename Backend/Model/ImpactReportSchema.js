@@ -23,7 +23,10 @@ const ImpactReport = db.define("ImpactReport",{
         type:DataTypes.TEXT,
         allowNull:false
     },
-
+    donationId:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
     // image:{
     //     type:DataTypes.STRING,
     //     allowNull:true

@@ -106,9 +106,7 @@ export function AdminViewCharityDonarList(navigate,charityId){
                     </td>
 
 
-                    <td data-label="Date">
-                        ${new Date(donation.createdAt)
-                        .toLocaleDateString()}
+                    <td data-label="Date">${new Date(donation.createdAt).toLocaleDateString()}
                     </td>
 
                 `;
